@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{amssymb} % for mathematical symbols
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{enumerate}
+    \newpage\item \textbf{Front:} What is an information set?
+    \newpage\item \textbf{Back:} Set of nodes that are indistinguishable to a player;
+    
+    \newpage\item \textbf{Front:} Report an example of one 2-players game with perfect information and one with imperfect information in extensive form representation;
+    \newpage\item \textbf{Back:}
+    
+    \newpage\item \textbf{Front:} Report an example of one 2-players game with perfect recall and one with imperfect recall in extensive form representation;
+    \newpage\item \textbf{Back:}
+    
+    \newpage\item \textbf{Front:} Report the definition of timeable extensive form game;
+    \newpage\item \textbf{Back:} A game is timeable if and only if all its information sets are chronologically ordered
+    
+    \newpage\item \textbf{Front:} Report an example of a game with perfect recall that is not timeable
+    \newpage\item \textbf{Back:}
+    
+    \newpage\item \textbf{Front:} Provide the definition of the normal form representation of a game, including games with Nature;
+    \newpage\item \textbf{Back:} Given an extensive form game $(N, A, T, \iota, \rho, \chi, U, H)$, its normal form representation is the tuple $(N, P, U')$, where:
+    \begin{itemize}
+        \item $N$ is the set of strategic players
+        \item $P$ is the set of sets of plans, where $P_i$ is the set of plans available to player $i$
+        \item $P_i$ specifies one action $a \in A_i$ for each information set $h$ belonging to $H_i$ such that $a \in \rho(h)$
+        \item $U$ is the set of utility functions corresponding to each player
+        \item $U_i: P_1 \times P_2 \times \ldots \times P_n \rightarrow \mathbb{R}$ is a function returning the utility of player $i$ given a plan profile $p$ resulting in terminal node $U(w)$, where $w$ is the terminal node reached by following the plan profile $p$
+    \end{itemize}
+    
+    \newpage\item \textbf{Front:} Given an extensive form game with 2 players, $h$ information sets per player, and 2 actions per information set, what is the asymptotical size of the normal form representation?
+    \newpage\item \textbf{Back:} $2^{2h}$
+    
+    \newpage\item \textbf{Front:} What is the definition of a strategy and a strategy profile in a normal form game?
+    \newpage\item \textbf{Back:} A strategy in a normal form game is a function $\sigma_i: P_i \rightarrow [0,1]$ returning the probability of player $i$ playing a given plan (in $P_i$).\newline
+    A strategy profile is a tuple $(\sigma_1, \sigma_2, \ldots, \sigma_n)$ containing a strategy for each player
+    
+    \newpage\item \textbf{Front:} What is the definition of the reduced normal form representation of an extensive form game?
+    \newpage\item \textbf{Back:} Given a normal form representation of the extensive form game, the reduced normal form representation is the tuple $(N, P', U')$ where:
+    \begin{enumerate}
+        \item $N, U'$ are the same as in the normal form representation
+        \item $P' \subseteq P$ such that no two plans belonging to the same player in $P'$ are realization equivalent, and any plan in $P$ not included in $P'$ is realization equivalent to a plan in $P'$
+    \end{enumerate}
+    
+    \newpage\item \textbf{Front:} Given an extensive form game with 2 players, $h$ information sets per player, and 2 actions per information set, what is the asymptotical size of a reduced normal form representation?
+    \newpage\item \textbf{Back:} $2^{2h}$ (same as non-reduced normal form)
+    
+    \newpage\item \textbf{Front:} What is the expected utility of a player in a normal form game?
+    \newpage\item \textbf{Back:} Given a strategy profile $\mathbf{\sigma}$, the expected utility of player $i$ is $\sum_{n=1}^{n} \sigma_i(p)U_i(p)$
+    
+    \newpage\item \textbf{Front:} Provide the definition of a sequence form representation of an extensive form game (with Nature);
+    \newpage\item \textbf{Back:} Given an extensive form game $(N, A, T, \iota, \rho, \chi, U, H)$, its sequence form representation is the tuple $(N, Q, U', C)$ where:
+    \begin{itemize}
+        \item $N$ is the set of strategic players
+        \item $Q$ is the set of sets of sequences, where $Q_i$ is the set of sequences available to player $i$
+        \item $U'$ is the set of utility functions $U'_i$, where each $U'_i$ returns the utility obtained by the terminal node reached by the sequence profile $q$
+        \item $C$ is the set of constraints $\{(F_i, f_i)\}$ over the sequence form strategy of all players
+    \end{itemize}
+    
+    \newpage\item \textbf{Front:} Given an extensive form representation of a game with 2 players, $h$ information sets per player, and 2 actions per information set, what is the asymptotical size of the sequence form representation?
+    \newpage\item \textbf{Back:} $2^{2h}$ i.e., the sequence form representation of an extensive form game is linear in the number of nodes
+    
+    \newpage\item \textbf{Front:} What is the definition of a sequence form strategy and a sequence form strategy profile in a sequence form game?
+    \newpage\item \textbf{Back:} A sequence form strategy (realization plan) $r_i$ is a function $r_i: Q_i \rightarrow [0,1]$ returning the probability of player $i$ playing a given sequence (in $Q_i$).\newline
+    A sequence form strategy profile is the joint strategy $(r_1, r_2, \ldots, r_n)$.
+    
+    \newpage\item \textbf{Front:} What is the expected utility of a player in a sequence form game?
+    \newpage\item \textbf{Back:} $\sum_{q_1 \in Q_1} \sum_{q_2 \in Q_2} \ldots \sum_{q_n \in Q_n} \prod_{i = 1}^{n} r_i(q_i) \cdot U_i(\mathbf{q})$\newline
+    Note that $U_i$ returns 0 if the sequence profile $\mathbf{q}$ contains at least one non-terminal sequence.
+
+    
+    \newpage\item \textbf{Front:} Provide the statement for Kuhn's Theorem
+    \newpage\item \textbf{Back:} There exists at least one realization equivalent agent form strategy for each normal form strategy if the game has perfect information.\newpage
+    \newpage\item \textbf{Front:} Provide the condition under which two strategies are realization equivalent
+    \newpage\item \textbf{Back:} Two strategies are realization equivalent if and only if they induce the same probability distribution over terminal nodes for each player
+    \newpage\item \textbf{Front:} What is the relation between sequence and reduced normal form representations?
+    
+\end{enumerate}
+
+\end{document}
